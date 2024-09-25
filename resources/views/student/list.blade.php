@@ -10,7 +10,7 @@
                         <div class="mb-3">
                             <div class="d-flex justify-content-between align-items-center">
                                 <label for="uploadFile" class="form-label">Upload File</label>
-                                <a class="btn btn-primary" href="#" role="button">Download Excel Template</a>
+                                <a class="btn btn-primary" href="{{ route('student.template') }}" role="button">Download Excel Template</a>
                             </div>
                             <div class="mb-3 mt-2">
                                 <input type="file" class="form-control" id="uploadFile">
