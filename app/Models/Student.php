@@ -18,4 +18,9 @@ class Student extends Model
             ->orWhere('class','LIKE','%'.$search.'%')
             ->orWhere('parent_contact_no','LIKE','%'.$search.'%');
     }
+
+    public function scopeGetClasses($query)
+    {
+        return $query->select('class')->distinct()->get();
+    }
 }
