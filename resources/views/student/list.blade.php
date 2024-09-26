@@ -42,7 +42,35 @@
                 </form>
 
                 <div class="card-body">
-                    <p class="text-center text-muted">No student data available.</p>
+                    @if (empty($students))
+                        <p class="text-center text-muted">No student data available.</p>          
+                    @else
+                        <div class="table-responsive">
+                            <table class="table">
+                                <caption>List of {{ $students->total() }} students</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No.</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Class</th>
+                                        <th scope="col">Level</th>
+                                        <th scope="col">Parent Contact</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-group-divider">
+                                    @foreach ($students as $student)
+                                        <tr>
+                                            <th scope="row">{{ $loop->iteration }}</th>
+                                            <td>{{ $student->name }}</td>
+                                            <td>{{ $student->class }}</td>
+                                            <td>{{ $student->level }}</td>
+                                            <td>{{ $student->parent_contact_no }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

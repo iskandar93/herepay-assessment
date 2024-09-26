@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Imports\StudentsImport;
 use App\Http\Requests\UploadRequest;
@@ -10,9 +11,13 @@ use App\Exports\StudentDataTemplateExport;
 
 class StudentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('student.list');
+        $query = Student::query();
+
+        $students = $query->paginate(10);
+
+        return view('student.list', compact('students'));
     }
 
     public function studentDataTemplate()
