@@ -10,7 +10,7 @@
                         @csrf
                         <div class="mb-3">
                             @if (session('status'))
-                                <div class="alert {{ session('alert-type') }}">
+                                <div class="alert {{ session('alert-type') }}" role="alert">
                                     {{ session('status') }}
                                 </div>
                             @endif
@@ -36,7 +36,7 @@
             <div class="card mt-2">
                 <form action="">
                     <div class="input-group p-3">
-                        <input type="text" class="form-control" placeholder="Search Student" value="">
+                        <input type="text" class="form-control" name="search" placeholder="Search Student" value="{{ request()->get('search') }}">
                         <button class="btn btn-success" type="submit">Search</button>
                     </div>
                 </form>
@@ -69,6 +69,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="d-flex justify-content-center">
+                                {{ $students->links() }}
+                            </div>
                         </div>
                     @endif
                 </div>
