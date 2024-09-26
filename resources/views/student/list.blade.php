@@ -6,14 +6,15 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <form action="">
+                    <form method="POST" action="{{ route('student.upload') }}" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-3">
                             <div class="d-flex justify-content-between align-items-center">
                                 <label for="uploadFile" class="form-label">Upload File</label>
                                 <a class="btn btn-primary" href="{{ route('student.template') }}" role="button">Download Excel Template</a>
                             </div>
                             <div class="mb-3 mt-2">
-                                <input type="file" class="form-control" id="uploadFile">
+                                <input type="file" class="form-control" name="file" id="uploadFile">
                             </div>
                             <div class="d-flex gap-2 mt-2">
                                 <button type="submit" class="btn btn-outline-primary w-100">Upload</button>
@@ -39,6 +40,13 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById('uploadFile').addEventListener('change', function() {
+        this.classList.remove('is-invalid');
+        this.classList.add('no-error');
+        document.getElementById('file-error').style.display = 'none';
+    });
+</script>
 @endsection
 
 
