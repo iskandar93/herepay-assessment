@@ -15,7 +15,9 @@ class StudentController extends Controller
     {
         $students = Student::searchStudent($request->search ?? '')->paginate(10);
 
-        return view('student.list', compact('students'));
+        $classes = Student::getClasses();
+
+        return view('student.list', compact('students', 'classes'));
     }
 
     public function studentDataTemplate()
@@ -29,6 +31,16 @@ class StudentController extends Controller
 
         return redirect()->route('student.list')->with([
             'status' => __('success.success_import'),
+            'alert-type' => 'alert-success',
+        ]);
+    }
+
+    public function delete(Student $student)
+    {
+        $student->delete();
+
+        return redirect()->route('student.list')->with([
+            'status' => __('success.success_delete'),
             'alert-type' => 'alert-success',
         ]);
     }

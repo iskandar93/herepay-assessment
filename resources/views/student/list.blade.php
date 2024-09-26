@@ -35,7 +35,7 @@
 
             <div class="card mt-2">
                 <form action="">
-                    <div class="input-group p-3">
+                    <div class="input-group p-3">                    
                         <input type="text" class="form-control" name="search" placeholder="Search Student" value="{{ request()->get('search') }}">
                         <button class="btn btn-success" type="submit">Search</button>
                     </div>
@@ -55,6 +55,7 @@
                                         <th scope="col">Class</th>
                                         <th scope="col">Level</th>
                                         <th scope="col">Parent Contact</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-group-divider">
@@ -65,6 +66,9 @@
                                             <td>{{ $student->class }}</td>
                                             <td>{{ $student->level }}</td>
                                             <td>{{ $student->parent_contact_no }}</td>
+                                            <td>
+                                                <a onclick="return confirm('Are you sure to remove this student?')" href="{{ route('student.delete', $student) }}" class="btn btn-danger">Delete</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -87,5 +91,4 @@
     });
 </script>
 @endsection
-
 
