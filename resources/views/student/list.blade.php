@@ -19,7 +19,7 @@
                                 <a class="btn btn-primary" href="{{ route('student.template') }}" role="button">Download Excel Template</a>
                             </div>
                             <div class="mb-3 mt-2">
-                                <input type="file" class="form-control @error('file') is-invalid @enderror" name="file" id="uploadFile">
+                                <input type="file" accept=".xlsx,.csv,.xls" class="form-control @error('file') is-invalid @enderror" name="file" id="uploadFile">
                                 @error('file')
                                     <div class="mt-1 alert alert-danger" id="file-error">{{ $message }}</div>
                                 @enderror
