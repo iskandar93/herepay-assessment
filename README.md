@@ -54,3 +54,38 @@ php artisan serve
 ```
 
 11. Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser
+
+### Run by Docker
+1. Clone the repository
+```
+git clone https://github.com/iskandar93/herepay-assessment.git
+```
+
+2. Install composer package and dependencies by run
+```
+composer install
+```
+
+3. Copy `.env.example` to `.env` file
+
+4. Configure database
+```
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=student_database
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+
+5. Run application by Docker
+```
+docker-compose up -d --build
+```
+
+6. Clear config cache:
+```
+docker-compose run --rm artisan config:cache
+```
+
+7. Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser 
