@@ -3,7 +3,7 @@
 
 1. Clone the repository
 ```
-git clone https://github.com/iskandar93/herepay-assessment.git
+git clone https://github.com/iskandar93/sqr-assessment.git
 ```
 
 2. Install composer package and dependencies by run
