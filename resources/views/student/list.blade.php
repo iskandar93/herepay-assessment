@@ -35,15 +35,15 @@
 
             <div class="card mt-2">
                 <form action="">
-                    <div class="input-group p-3">                    
+                    <div class="input-group p-3">
                         <input type="text" class="form-control" name="search" placeholder="Search Student" value="{{ request()->get('search') }}">
                         <button class="btn btn-success" type="submit">Search</button>
                     </div>
                 </form>
 
                 <div class="card-body">
-                    @if (empty($students))
-                        <p class="text-center text-muted">No student data available.</p>          
+                    @if (empty($students->first()))
+                        <p class="text-center text-muted">No student data available.</p>
                     @else
                         <div class="table-responsive">
                             <table class="table">
